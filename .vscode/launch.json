@@ -1,13 +1,158 @@
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "node",
-      "request": "attach",
-      "name": "Node: Nodemon",
-      "processId": "${command:PickProcess}",
-      "restart": true,
-      "protocol": "inspector",
-    },
-  ]
-}
+<!DOCTYPE>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Menu & Nama Pembeli</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: none;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        .menu, .pembeli {
+            margin-top: 20px;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .item span {
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .login-container h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .login-container input[type="text"], .login-container input[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .login-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Masukkan Nama dan Alamat</h2>
+        <form id="loginForm">
+            <input type="text" id="nama" name="nama" placeholder="Nama" required>
+            <input type="text" id="alamat" name="alamat" placeholder="Alamat" required>
+            <input type="submit" value="Masuk">
+        </form>
+    </div>
+
+    <div class="container" id="content">
+        <h1>Restoran XYZ</h1>
+        
+        <h2>Daftar Menu</h2>
+        <div class="menu">
+            <div class="item">
+                <span>Nasi Goreng</span>
+                <span>Rp20.000</span>
+            </div>
+            <div class="item">
+                <span>Mie Goreng</span>
+                <span>Rp18.000</span>
+            </div>
+            <div class="item">
+                <span>Ayam Bakar</span>
+                <span>Rp25.000</span>
+            </div>
+            <div class="item">
+                <span>Soto Ayam</span>
+                <span>Rp15.000</span>
+            </div>
+            <div class="item">
+                <span>Es Teh</span>
+                <span>Rp5.000</span>
+            </div>
+        </div>
+
+        <h2>Nama Pembeli</h2>
+        <div class="pembeli">
+            <div class="item">
+                <span>Andi</span>
+            </div>
+            <div class="item">
+                <span>Budi</span>
+            </div>
+            <div class="item">
+                <span>Chandra</span>
+            </div>
+            <div class="item">
+                <span>Dedi</span>
+            </div>
+            <div class="item">
+                <span>Eka</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2024 Restoran XYZ. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const alamat = document.getElementById('alamat').value;
+            if (nama && alamat) {
+                document.querySelector('.login-container').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                alert('Silakan isi nama dan alamat.');
+            }
+        });
+    </script>
+</body>
+</html>
+
+ 
